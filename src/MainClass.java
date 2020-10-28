@@ -23,8 +23,9 @@ public class MainClass {
             return;
         }
 
-        int[] numbers = Generation(level);
-        correctString=CorrectString(level,numbers);
+        Sequence array = new Sequence(level);
+        array.Generation();
+        correctString=array.GetString();
         System.out.println("Попробуйте отгадать последовательность");
 
         while (!gameOver) {
@@ -45,32 +46,8 @@ public class MainClass {
                 System.out.println("Нерпавильная длина, попробуйте еще раз");
                 continue;
             }
-            countTry=Check(level,countTry,userNumbers,numbers,correctString);
+            countTry=Check(level,countTry,userNumbers,array.GetArray(),correctString);
         }
-    }
-
-    public static int[] Generation(int level){
-        int[] numbers = new int[level];
-        numbers[0]=(int)(Math.random()*10);
-
-        for(int i=1;i<level;i++){
-            numbers[i]=(int)(Math.random()*10);
-            for(int j=0;j<i;j++){
-                if(numbers[j]==numbers[i]){
-                    numbers[i]=(int)(Math.random()*10);
-                    j=-1;
-                }
-            }
-        }
-        return numbers;
-    }
-
-    public static String CorrectString(int level, int[] numbers){
-        String string="";
-        for(int i=0;i<level;i++){
-            string=string+String.valueOf(numbers[i]);
-        }
-        return  string;
     }
 
     public static int Check(int level,int countTry,int userNumbers, int[] numbers, String correctString){
