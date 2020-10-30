@@ -1,0 +1,4 @@
+желтый correct
+красный correct
+черный incorrect
+коричневый incorrect

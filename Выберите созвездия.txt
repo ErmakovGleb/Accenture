@@ -1,0 +1,4 @@
+Дракона correct
+Девы correct
+Кота incorrect
+Дерева incorrect
